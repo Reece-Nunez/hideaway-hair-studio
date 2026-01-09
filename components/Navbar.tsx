@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,7 +16,9 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -23,8 +26,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Show navbar after splash completes (on homepage) or immediately (other pages)
+  useEffect(() => {
+    if (!isHomePage) {
+      setShowNavbar(true);
+      return;
+    }
+
+    // Wait for splash to complete (2.8s splash + small buffer)
+    const timer = setTimeout(() => setShowNavbar(true), 2900);
+    return () => clearTimeout(timer);
+  }, [isHomePage]);
+
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={showNavbar ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
@@ -35,13 +53,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <span
-              className={`text-2xl font-semibold tracking-tight transition-colors duration-500 ${
-                isScrolled ? "text-charcoal" : "text-white"
-              }`}
-            >
-              HIDEAWAY
-            </span>
+            <Image
+              src="/logo-black.png"
+              alt="Hideaway Hair Studio"
+              width={140}
+              height={40}
+              className="h-10 w-48 transition-opacity duration-500"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,7 +77,7 @@ export default function Navbar() {
                   }`}
                   style={
                     !isActive
-                      ? { color: isScrolled ? "#1A1A1A" : "rgba(255,255,255,0.8)" }
+                      ? { color: "#1A1A1A" }
                       : undefined
                   }
                 >
@@ -87,19 +106,13 @@ export default function Navbar() {
           >
             <div className="w-6 h-5 flex flex-col justify-between">
               <span
-                className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? "bg-charcoal" : "bg-white"
-                } ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
               />
               <span
-                className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? "bg-charcoal" : "bg-white"
-                } ${isMobileMenuOpen ? "opacity-0" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`block h-0.5 w-full transition-all duration-300 ${
-                  isScrolled ? "bg-charcoal" : "bg-white"
-                } ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
               />
             </div>
           </button>
@@ -164,6 +177,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </nav>
-    </header>
+    </motion.header>
   );
 }

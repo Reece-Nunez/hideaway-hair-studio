@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,9 +12,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <span className="text-2xl font-semibold tracking-tight">
-                HIDEAWAY
-              </span>
+              <Image
+                src="/logo-white.png"
+                alt="Hideaway Hair Studio"
+                width={140}
+                height={40}
+                className="h-10 w-48"
+              />
             </Link>
             <p className="text-gray leading-relaxed mb-8">
               Your sanctuary for beautiful hair. Where style meets
