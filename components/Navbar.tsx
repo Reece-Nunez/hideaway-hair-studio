@@ -70,7 +70,7 @@ export default function Navbar() {
               return (
                 <Link
                   key={link.href}
-                  href={link.href}f
+                  href={link.href}
                   data-text={link.label}
                   className={`text-sm font-medium transition-all duration-300 ${
                     isActive ? "nav-link-active" : "nav-link"
