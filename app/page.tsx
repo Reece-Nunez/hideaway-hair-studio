@@ -94,32 +94,44 @@ export default function Home() {
       {/* Parallax Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center overflow-hidden"
+        className="relative min-h-screen flex items-center overflow-hidden bg-charcoal"
       >
-        {/* Hero Background Image */}
+        {/* Hero Background Image - CSS Background */}
         <motion.div
-          style={{ y: y3 }}
-          className="absolute inset-0"
-        >
-          <Image
-            src="/hero-image.png"
-            alt="Hideaway Hair Studio"
-            fill
-            className="object-cover object-top"
-            priority
-          />
-          {/* Subtle dark overlay for contrast */}
-          <div className="absolute inset-0 bg-black/20" />
-        </motion.div>
+          className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
+          style={{
+            y: y3,
+            backgroundImage: "url('/hero-image-mobile.png')",
+            backgroundPosition: "center 30%"
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-cover bg-no-repeat hidden md:block lg:hidden"
+          style={{
+            y: y3,
+            backgroundImage: "url('/hero-image-tablet.png')",
+            backgroundPosition: "center 30%"
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-cover bg-no-repeat hidden lg:block"
+          style={{
+            y: y3,
+            backgroundImage: "url('/hero-image.png')",
+            backgroundPosition: "20% top"
+          }}
+        />
+        {/* Subtle dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/20" />
 
         {/* Content */}
         <motion.div
           style={{ opacity, scale }}
-          className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-24"
+          className="relative z-10 w-full pt-24 px-6 lg:pr-12 xl:pr-24"
         >
-          <div className="max-w-2xl">
+          <div className="max-w-xl ml-auto lg:mr-0 xl:mr-0">
             {/* Text Content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-right">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -137,7 +149,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-lg text-charcoal/70 mb-10 max-w-lg mx-auto lg:mx-0"
+                className="text-lg text-white mb-10 max-w-lg mx-auto lg:ml-auto lg:mr-0"
               >
                 Step into your sanctuary. A place where transformation meets
                 tranquility and every visit feels like an escape.
@@ -147,7 +159,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end"
               >
                 <Link
                   href="/book"
@@ -157,7 +169,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/services"
-                  className="px-8 py-4 border border-charcoal/30 text-charcoal font-medium rounded-full hover:bg-charcoal/10 transition-all text-center"
+                  className="px-8 py-4 bg-white text-charcoal border-2 border-charcoal font-medium rounded-full hover:scale-105 transition-transform text-center"
                 >
                   Explore Services
                 </Link>

@@ -49,7 +49,7 @@ export default function Navbar() {
           : "bg-transparent py-6"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12">
+      <nav className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
@@ -70,7 +70,7 @@ export default function Navbar() {
               return (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href}f
                   data-text={link.label}
                   className={`text-sm font-medium transition-all duration-300 ${
                     isActive ? "nav-link-active" : "nav-link"
