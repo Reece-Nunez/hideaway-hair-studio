@@ -105,9 +105,11 @@ export default function Home() {
             src="/hero-image.png"
             alt="Hideaway Hair Studio"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             priority
           />
+          {/* Subtle dark overlay for contrast */}
+          <div className="absolute inset-0 bg-black/20" />
         </motion.div>
 
         {/* Content */}
