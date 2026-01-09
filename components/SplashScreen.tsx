@@ -16,7 +16,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   useEffect(() => {
     // Calculate the position the logo needs to move to (navbar logo position)
     // Header: py-6 (24px top padding)
-    // Nav: max-w-7xl (1280px) mx-auto px-6 (24px) lg:px-12 (48px)
+    // Nav: full width with px-6 (24px) lg:px-12 (48px) padding
     // Logo: h-10 (40px) w-48 (192px)
     const calculateTargetPosition = () => {
       if (!logoRef.current) return;
@@ -26,22 +26,16 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       const logoCenterY = logoRect.top + logoRect.height / 2;
 
       const windowWidth = window.innerWidth;
-      const maxNavWidth = 1280; // max-w-7xl = 80rem = 1280px
       const horizontalPadding = windowWidth >= 1024 ? 48 : 24; // lg:px-12 : px-6
       const verticalPadding = 24; // py-6
 
-      // Calculate where the nav content starts (accounting for mx-auto centering)
-      const navStartX = windowWidth > maxNavWidth
-        ? (windowWidth - maxNavWidth) / 2 + horizontalPadding
-        : horizontalPadding;
-
       // Logo in navbar: h-10 (40px height), w-48 (192px width)
-      // When splash logo scales to 0.5, it becomes ~96px wide
+      // When splash logo scales to 0.5, it becomes ~140px wide (from 280px)
       // We want the center of the scaled logo to align with center of navbar logo
       const navbarLogoWidth = 192;
       const navbarLogoHeight = 40;
 
-      const targetX = navStartX + (navbarLogoWidth / 2);
+      const targetX = horizontalPadding + (navbarLogoWidth / 2);
       const targetY = verticalPadding + (navbarLogoHeight / 2);
 
       setTargetPosition({
