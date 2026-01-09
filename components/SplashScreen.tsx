@@ -77,45 +77,44 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
 
   return (
     <AnimatePresence>
-      {phase !== "done" && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: phase === "transition" ? 0 : 1 }}
-          transition={{ duration: 0.6, delay: phase === "transition" ? 0.4 : 0 }}
-          className="fixed inset-0 z-[100] bg-charcoal"
-        >
-          <div className="relative w-full h-full flex items-center justify-center">
-            <motion.div
-              ref={logoRef}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={
-                phase === "logo"
-                  ? { opacity: 1, scale: 1, x: 0, y: 0 }
-                  : {
-                      opacity: 1,
-                      scale: 0.5,
-                      x: targetPosition.x,
-                      y: targetPosition.y
-                    }
-              }
-              transition={
-                phase === "logo"
-                  ? { duration: 0.6, ease: "easeOut" }
-                  : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }
-              }
-            >
-              <Image
-                src="/logo-white.png"
-                alt="Hideaway Hair Studio"
-                width={280}
-                height={80}
-                className="h-20 w-auto"
-                priority
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
+      <motion.div
+        key="splash"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: phase === "transition" ? 0 : 1 }}
+        transition={{ duration: 0.6, delay: phase === "transition" ? 0.4 : 0 }}
+        className="fixed inset-0 z-[100] bg-charcoal"
+      >
+        <div className="relative w-full h-full flex items-center justify-center">
+          <motion.div
+            ref={logoRef}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={
+              phase === "logo"
+                ? { opacity: 1, scale: 1, x: 0, y: 0 }
+                : {
+                    opacity: 1,
+                    scale: 0.5,
+                    x: targetPosition.x,
+                    y: targetPosition.y
+                  }
+            }
+            transition={
+              phase === "logo"
+                ? { duration: 0.6, ease: "easeOut" }
+                : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }
+            }
+          >
+            <Image
+              src="/logo-white.png"
+              alt="Hideaway Hair Studio"
+              width={280}
+              height={80}
+              className="h-20 w-auto"
+              priority
+            />
+          </motion.div>
+        </div>
+      </motion.div>
     </AnimatePresence>
   );
 }

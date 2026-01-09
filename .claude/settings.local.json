@@ -9,7 +9,8 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd parallax hero, navbar, footer, and styling\n\n- Add colorful parallax hero with mouse-tracking gradient orbs\n- Create responsive Navbar with scroll-based styling and mobile menu\n- Create Footer with quick links, services, contact info, and social icons\n- Add gradient hover effects for nav links and social icons\n- Add Framer Motion for animations\n- Add brand assets \\(logos and Glacial Indifference font\\)\n- Set up color system with CSS custom properties\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push)",
       "Bash(npm install:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(unzip:*)"
     ]
   }
 }
