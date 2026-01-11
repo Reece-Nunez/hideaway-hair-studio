@@ -29,7 +29,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   }, [onComplete]);
 
   useEffect(() => {
-    if (phase === "skip") return;
+    if (phase === "skip" || phase === "done") return;
 
     // Calculate the position the logo needs to move to (navbar logo position)
     // Header: py-6 (24px top padding)
@@ -67,7 +67,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   }, [phase]);
 
   useEffect(() => {
-    if (phase === "skip") return;
+    if (phase === "skip" || phase === "done") return;
 
     // Phase 1: Show logo for 1 second
     const logoTimer = setTimeout(() => {
