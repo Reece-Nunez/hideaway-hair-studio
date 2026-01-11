@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Bellefair } from "next/font/google";
-import localFont from "next/font/local";
+import { Bellefair, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,20 +10,10 @@ const bellefair = Bellefair({
   weight: "400",
 });
 
-const glacial = localFont({
-  src: [
-    {
-      path: "../public/GlacialIndifference-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/GlacialIndifference-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const josefinSans = Josefin_Sans({
   variable: "--font-glacial",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bellefair.variable} ${glacial.variable} antialiased`}
+        className={`${bellefair.variable} ${josefinSans.variable} antialiased`}
         style={{ fontFamily: 'var(--font-glacial), system-ui, sans-serif' }}
       >
         <Navbar />
