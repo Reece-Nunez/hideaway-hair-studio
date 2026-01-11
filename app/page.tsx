@@ -126,11 +126,11 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6 }}
-                className="text-6xl sm:text-7xl lg:text-7xl xl:text-8xl font-semibold text-white mb-8 leading-[0.95]"
+                className="text-6xl sm:text-7xl lg:text-7xl xl:text-8xl text-white mb-8 leading-[0.95]"
               >
                 Where Style
                 <br />
-                <span className="bg-gradient-to-r from-rose-500 via-violet-500 to-emerald-500 bg-clip-text text-transparent font-bold">
+                <span className="bg-gradient-to-r from-rose-500 via-violet-500 to-emerald-500 bg-clip-text text-transparent">
                   Finds You
                 </span>
               </motion.h1>
