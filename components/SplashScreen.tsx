@@ -9,11 +9,28 @@ interface SplashScreenProps {
 }
 
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
-  const [phase, setPhase] = useState<"logo" | "transition" | "done">("logo");
+  const [phase, setPhase] = useState<"logo" | "transition" | "done" | "skip">("logo");
   const [targetPosition, setTargetPosition] = useState({ x: 0, y: 0 });
   const logoRef = useRef<HTMLDivElement>(null);
+  const hasCheckedStorage = useRef(false);
+
+  // Check if splash has already been shown this session
+  useEffect(() => {
+    if (hasCheckedStorage.current) return;
+    hasCheckedStorage.current = true;
+
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+    if (hasSeenSplash) {
+      setPhase("skip");
+      onComplete();
+    } else {
+      sessionStorage.setItem("hasSeenSplash", "true");
+    }
+  }, [onComplete]);
 
   useEffect(() => {
+    if (phase === "skip") return;
+
     // Calculate the position the logo needs to move to (navbar logo position)
     // Header: py-6 (24px top padding)
     // Nav: full width with px-6 (24px) lg:px-12 (48px) padding
@@ -47,27 +64,29 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     calculateTargetPosition();
     window.addEventListener("resize", calculateTargetPosition);
     return () => window.removeEventListener("resize", calculateTargetPosition);
-  }, []);
+  }, [phase]);
 
   useEffect(() => {
-    // Phase 1: Show logo for 2 seconds
+    if (phase === "skip") return;
+
+    // Phase 1: Show logo for 1 second
     const logoTimer = setTimeout(() => {
       setPhase("transition");
-    }, 2000);
+    }, 1000);
 
     // Phase 2: Transition animation takes ~0.8s, then complete
     const completeTimer = setTimeout(() => {
       setPhase("done");
       onComplete();
-    }, 2800);
+    }, 1800);
 
     return () => {
       clearTimeout(logoTimer);
       clearTimeout(completeTimer);
     };
-  }, [onComplete]);
+  }, [onComplete, phase]);
 
-  if (phase === "done") return null;
+  if (phase === "done" || phase === "skip") return null;
 
   return (
     <AnimatePresence>

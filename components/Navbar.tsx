@@ -33,8 +33,15 @@ export default function Navbar() {
       return;
     }
 
-    // Wait for splash to complete (2.8s splash + small buffer)
-    const timer = setTimeout(() => setShowNavbar(true), 2900);
+    // Check if splash was already shown this session
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+    if (hasSeenSplash) {
+      setShowNavbar(true);
+      return;
+    }
+
+    // Wait for splash to complete (1.8s splash + small buffer)
+    const timer = setTimeout(() => setShowNavbar(true), 1900);
     return () => clearTimeout(timer);
   }, [isHomePage]);
 
@@ -72,7 +79,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   data-text={link.label}
-                  className={`text-sm font-medium transition-all duration-300 ${
+                  className={`text-xl font-medium transition-all duration-300 ${
                     isActive ? "nav-link-active" : "nav-link"
                   }`}
                   style={
@@ -87,7 +94,7 @@ export default function Navbar() {
             })}
             <Link
               href="/book"
-              className="ml-4 px-7 py-3 text-sm font-medium rounded-full transition-all duration-300 hover:scale-105 hover:opacity-90"
+              className="ml-4 px-7 py-3 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:opacity-90"
               style={
                 isScrolled
                   ? { backgroundColor: "#FFFFFF", color: "#1A1A1A", border: "2px solid #1A1A1A" }
@@ -127,7 +134,7 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className={`md:hidden overflow-hidden rounded-2xl mt-4 ${
-                isScrolled ? "bg-white" : "bg-white/10 backdrop-blur-md"
+                isScrolled ? "bg-white" : "bg-white/10 backdrop-blur-sm"
               }`}
             >
               <div className="flex flex-col gap-1 p-6">
@@ -149,7 +156,7 @@ export default function Navbar() {
                         }`}
                         style={
                           !isActive
-                            ? { color: isScrolled ? "#1A1A1A" : "#FFFFFF" }
+                            ? { color: "#1A1A1A" }
                             : undefined
                         }
                       >

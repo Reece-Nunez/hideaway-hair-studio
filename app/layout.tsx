@@ -28,12 +28,12 @@ const glacial = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hideaway Hair Salon | Your Sanctuary for Beautiful Hair",
+  title: "Hideaway Hair Studio | Your Sanctuary for Beautiful Hair",
   description:
-    "Hideaway Hair Salon - Where style meets self-expression. Expert cuts, color, and styling in a relaxing atmosphere. Book your appointment today.",
-  keywords: ["hair salon", "haircut", "hair color", "styling", "beauty"],
+    "Hideaway Hair Studio - Where style meets self-expression. Expert cuts, color, and styling in a relaxing atmosphere. Book your appointment today.",
+  keywords: ["hair studio", "haircut", "hair color", "styling", "beauty"],
   openGraph: {
-    title: "Hideaway Hair Salon",
+    title: "Hideaway Hair Studio",
     description: "Your sanctuary for beautiful hair",
     type: "website",
   },

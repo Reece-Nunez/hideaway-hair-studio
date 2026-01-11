@@ -6,26 +6,24 @@ export default function Footer() {
 
   return (
     <footer className="bg-charcoal text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+        {/* Main Footer Content */}
+        <div className="flex flex-col items-center text-center gap-6 lg:flex-row lg:items-center lg:justify-between lg:text-left mb-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <Image
-                src="/logo-white.png"
-                alt="Hideaway Hair Studio"
-                width={140}
-                height={40}
-                className="h-10 w-48"
-              />
-            </Link>
-            <p className="text-gray leading-relaxed mb-8">
-              Your sanctuary for beautiful hair. Where style meets
-              self-expression.
-            </p>
+          <Link href="/" className="inline-block">
+            <Image
+              src="/logo-white.png"
+              alt="Hideaway Hair Studio"
+              width={140}
+              height={40}
+              className="h-10 w-48"
+            />
+          </Link>
+
+          {/* Social Links + Quick Links */}
+          <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-8">
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href="#"
                 aria-label="Instagram"
@@ -45,67 +43,31 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              {["Home", "About", "Services", "Contact"].map((item) => (
-                <li key={item}>
+            {/* Divider - mobile only */}
+            <div className="w-px h-6 bg-white/20 hidden sm:block lg:block" />
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-xs font-medium text-white/50 uppercase tracking-wider mb-2 lg:hidden">Quick Links</h4>
+              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm">
+                {["Home", "About", "Services", "Contact"].map((item) => (
                   <Link
+                    key={item}
                     href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                     data-text={item}
                     className="nav-link text-gray"
                   >
                     {item}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold mb-6">Services</h4>
-            <ul className="space-y-4 text-gray">
-              <li>Haircuts & Styling</li>
-              <li>Color & Highlights</li>
-              <li>Treatments</li>
-              <li>Bridal & Events</li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold mb-6">Contact</h4>
-            <ul className="space-y-4 text-gray">
-              <li>123 Beauty Lane</li>
-              <li>Suite 100</li>
-              <li>
-                <a
-                  href="tel:+15551234567"
-                  data-text="(555) 123-4567"
-                  className="nav-link"
-                >
-                  (555) 123-4567
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:hello@hideaway.com"
-                  data-text="hello@hideaway.com"
-                  className="nav-link"
-                >
-                  hello@hideaway.com
-                </a>
-              </li>
-            </ul>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
 
         {/* Hours */}
-        <div className="border-t border-white/10 pt-10 mb-10">
+        <div className="border-t border-white/10 pt-8 mb-6">
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-2 text-gray">
             <span>Mon - Fri: 9am - 8pm</span>
             <span>Saturday: 9am - 6pm</span>
@@ -115,7 +77,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center text-gray text-sm">
-          <p>&copy; {currentYear} Hideaway Hair Salon. All rights reserved.</p>
+          <p>&copy; {currentYear} Hideaway Hair Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>
