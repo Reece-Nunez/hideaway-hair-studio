@@ -98,7 +98,8 @@ function SideTabsOption() {
               <p className="text-muted text-lg leading-relaxed mb-6">{active.bio}</p>
               <Link
                 href="/book"
-                className="inline-block px-6 py-3 bg-charcoal text-white font-medium rounded-full hover:scale-105 transition-transform"
+                className="inline-block px-6 py-3 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
+                style={{ color: "#FFFFFF" }}
               >
                 Book with {active.name.split(" ")[0]}
               </Link>
@@ -175,7 +176,8 @@ function ThumbnailRowOption() {
             <div className="flex gap-4">
               <Link
                 href="/book"
-                className="px-6 py-3 bg-charcoal text-white font-medium rounded-full hover:scale-105 transition-transform"
+                className="px-6 py-3 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
+                style={{ color: "#FFFFFF" }}
               >
                 Book Appointment
               </Link>
@@ -250,7 +252,8 @@ function CarouselOption() {
                     <div className="flex gap-4">
                       <Link
                         href="/book"
-                        className="px-6 py-3 bg-charcoal text-white font-medium rounded-full hover:scale-105 transition-transform"
+                        className="px-6 py-3 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
+                        style={{ color: "#FFFFFF" }}
                       >
                         Book Now
                       </Link>
@@ -344,7 +347,8 @@ function InteractiveGridOption() {
                         <Link
                           href="/book"
                           onClick={(e) => e.stopPropagation()}
-                          className="px-5 py-2 bg-charcoal text-white text-sm font-medium rounded-full hover:scale-105 transition-transform"
+                          className="px-5 py-2 bg-charcoal text-sm font-medium rounded-full hover:scale-105 transition-transform"
+                          style={{ color: "#FFFFFF" }}
                         >
                           Book Now
                         </Link>

@@ -189,7 +189,8 @@ export default function About() {
               <div className="mt-8">
                 <Link
                   href="/book"
-                  className="inline-block px-8 py-4 bg-charcoal text-white font-medium rounded-full hover:scale-105 transition-transform"
+                  className="inline-block px-8 py-4 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
+                  style={{ color: "#FFFFFF" }}
                 >
                   Book with Annie
                 </Link>
@@ -242,7 +243,8 @@ export default function About() {
               </Link>
               <Link
                 href="/services"
-                className="text-lg px-8 py-4 bg-transparent text-white border-2 border-white font-medium rounded-full hover:scale-105 transition-transform"
+                className="text-lg px-8 py-4 bg-transparent border-2 border-white font-medium rounded-full hover:scale-105 transition-transform"
+                style={{ color: "#FFFFFF" }}
               >
                 View Services
               </Link>
