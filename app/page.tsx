@@ -87,7 +87,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-no-repeat md:hidden"
           style={{
             y: y3,
-            backgroundImage: "url('/hero-image-mobile2.png')",
+            backgroundImage: "url('/hero-image-mobile3.png')",
             backgroundPosition: "center 30%"
           }}
         />
@@ -139,7 +139,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-lg text-white mb-10 max-w-lg mx-auto lg:ml-auto lg:mr-0 font-semibold"
+                className="text-xl text-white mb-10 max-w-lg mx-auto lg:ml-auto lg:mr-0 font-semibold"
               >
                 Step into your sanctuary. A place where transformation meets
                 tranquility and every visit feels like an escape.
@@ -153,13 +153,13 @@ export default function Home() {
               >
                 <Link
                   href="/book"
-                  className="group px-8 py-4 bg-white text-charcoal border-2 border-charcoal font-medium rounded-full hover:scale-105 transition-transform text-center"
+                  className="text-lg group px-8 py-4 bg-white text-charcoal border-2 border-charcoal font-medium rounded-full hover:scale-105 transition-transform text-center"
                 >
                   Book Appointment
                 </Link>
                 <Link
                   href="/services"
-                  className="px-8 py-4 bg-white text-charcoal border-2 border-charcoal font-medium rounded-full hover:scale-105 transition-transform text-center"
+                  className="text-lg px-8 py-4 bg-white text-charcoal border-2 border-charcoal font-medium rounded-full hover:scale-105 transition-transform text-center"
                 >
                   Explore Services
                 </Link>
@@ -199,11 +199,11 @@ export default function Home() {
                   className="text-center"
                 >
                   <Icon className="w-12 h-12 text-charcoal mx-auto mb-5" strokeWidth={1.5} />
-                  <h3 className="text-lg font-semibold text-charcoal mb-3">
+                  <h3 className="text-2xl font-semibold text-charcoal mb-3">
                     {service.title}
                   </h3>
                   <div className="w-12 h-px bg-charcoal/20 mx-auto mb-3" />
-                  <p className="text-muted text-sm leading-relaxed">
+                  <p className="text-muted text-md leading-relaxed">
                     {service.description}
                   </p>
                 </motion.div>
@@ -366,7 +366,7 @@ export default function Home() {
               className="rounded-3xl overflow-hidden shadow-xl h-[400px] lg:h-full min-h-[400px]"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095919364!2d-74.00425878428698!3d40.74076794379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sus!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2967.8893034824087!2d-87.6462!3d41.9342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3b2e59adf21%3A0x1234567890abcdef!2s2815%20N%20Pine%20Grove%20Ave%2C%20Chicago%2C%20IL%2060657!5e0!3m2!1sen!2sus!4v1234567890"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -391,9 +391,8 @@ export default function Home() {
                     Address
                   </h3>
                   <p className="text-white text-xl lg:text-2xl font-medium leading-relaxed">
-                    123 Main Street<br />
-                    Suite 100<br />
-                    New York, NY 10001
+                    2815 N Pine Grove Ave<br />
+                    Chicago, IL 60657
                   </p>
                 </div>
 
@@ -403,9 +402,12 @@ export default function Home() {
                     Hours
                   </h3>
                   <div className="text-white text-lg space-y-1">
-                    <p>Monday – Friday: 9am – 7pm</p>
+                    <p>Tuesday: 1pm – 9pm</p>
+                    <p>Wednesday: 11am – 9pm</p>
+                    <p>Thursday: 1pm – 9pm</p>
+                    <p>Friday: 10am – 6pm</p>
                     <p>Saturday: 9am – 5pm</p>
-                    <p>Sunday: Closed</p>
+                    <p>Sunday & Monday: Closed</p>
                   </div>
                 </div>
 
@@ -415,8 +417,7 @@ export default function Home() {
                     Contact
                   </h3>
                   <div className="text-white text-lg space-y-1">
-                    <p>(555) 123-4567</p>
-                    <p>hello@hideawayhair.com</p>
+                    <p className="text-white/70 italic">Coming soon</p>
                   </div>
                 </div>
 
