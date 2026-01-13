@@ -13,12 +13,19 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+// Pages with dark hero backgrounds
+const darkHeroPages = ["/", "/about"];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const hasDarkHero = darkHeroPages.includes(pathname);
+
+  // Determine if we should use light (white) text/logo
+  const useLightMode = hasDarkHero && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -61,7 +68,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="relative z-10">
             <Image
-              src="/logo-black.png"
+              src={useLightMode ? "/logo-white.png" : "/logo-black.png"}
               alt="Hideaway Hair Studio"
               width={140}
               height={40}
@@ -80,11 +87,11 @@ export default function Navbar() {
                   href={link.href}
                   data-text={link.label}
                   className={`text-xl font-medium transition-all duration-300 ${
-                    isActive ? "nav-link-active" : "nav-link"
+                    isActive ? "nav-link-active" : useLightMode ? "" : "nav-link"
                   }`}
                   style={
                     !isActive
-                      ? { color: "#1A1A1A" }
+                      ? { color: useLightMode ? "#FFFFFF" : "#1A1A1A" }
                       : undefined
                   }
                 >
@@ -98,7 +105,9 @@ export default function Navbar() {
               style={
                 isScrolled
                   ? { backgroundColor: "#FFFFFF", color: "#1A1A1A", border: "2px solid #1A1A1A" }
-                  : { backgroundColor: "#FFFFFF", color: "#1A1A1A" }
+                  : useLightMode
+                  ? { backgroundColor: "#FFFFFF", color: "#1A1A1A" }
+                  : { backgroundColor: "#1A1A1A", color: "#FFFFFF" }
               }
             >
               Book Now
@@ -113,13 +122,13 @@ export default function Navbar() {
           >
             <div className="w-6 h-5 flex flex-col justify-between">
               <span
-                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 ${useLightMode ? "bg-white" : "bg-charcoal"} ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
               />
               <span
-                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "opacity-0" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 ${useLightMode ? "bg-white" : "bg-charcoal"} ${isMobileMenuOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`block h-0.5 w-full transition-all duration-300 bg-charcoal ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                className={`block h-0.5 w-full transition-all duration-300 ${useLightMode ? "bg-white" : "bg-charcoal"} ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
               />
             </div>
           </button>
@@ -134,7 +143,7 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className={`md:hidden overflow-hidden rounded-2xl mt-4 ${
-                isScrolled ? "bg-white" : "bg-white/10 backdrop-blur-sm"
+                isScrolled ? "bg-white" : "bg-white/95 backdrop-blur-md"
               }`}
             >
               <div className="flex flex-col gap-1 p-6">
@@ -174,7 +183,7 @@ export default function Navbar() {
                     href="/book"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="inline-block mt-4 px-7 py-3 text-sm font-medium rounded-full"
-                    style={{ backgroundColor: "#FFFFFF", color: "#1A1A1A" }}
+                    style={{ backgroundColor: "#1A1A1A", color: "#FFFFFF" }}
                   >
                     Book Now
                   </Link>

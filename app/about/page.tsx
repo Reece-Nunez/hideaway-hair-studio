@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
-import { Heart, Sparkles, Users } from "lucide-react";
+import { Heart, Sparkles, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
 const values = [
   {
@@ -22,7 +23,39 @@ const values = [
   },
 ];
 
+const stylists = [
+  {
+    name: "Annie Pursel",
+    role: "Founder & Stylist",
+    bio: "With years of experience behind the chair, Annie has developed a passion for helping people discover their personal style. Her approach combines technical expertise with genuine care—taking time to understand not just what you want, but how your hair fits into your lifestyle.",
+    accent: "from-rose-400 to-rose-500",
+  },
+  {
+    name: "Sarah Mitchell",
+    role: "Senior Stylist",
+    bio: "Sarah specializes in modern cuts and lived-in color. With a keen eye for face shapes and personal style, she creates looks that are both on-trend and uniquely you. Her clients love her calm energy and attention to detail.",
+    accent: "from-violet-400 to-violet-500",
+  },
+  {
+    name: "Maya Chen",
+    role: "Color Specialist",
+    bio: "Maya is our color expert, known for her stunning balayage and creative color work. She stays on the cutting edge of color techniques and loves helping clients express themselves through bold or subtle transformations.",
+    accent: "from-emerald-400 to-emerald-500",
+  },
+  {
+    name: "Jordan Taylor",
+    role: "Stylist",
+    bio: "Jordan brings fresh energy and creative vision to every appointment. Trained in both classic and contemporary techniques, they excel at crafting styles that work for your everyday life while making you feel extraordinary.",
+    accent: "from-amber-400 to-amber-500",
+  },
+];
+
 export default function About() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const next = () => setActiveIndex((prev) => (prev + 1) % stylists.length);
+  const prev = () => setActiveIndex((prev) => (prev - 1 + stylists.length) % stylists.length);
+
   return (
     <>
       {/* Hero Section */}
@@ -158,60 +191,110 @@ export default function About() {
         </div>
       </section>
 
-      {/* Founder Section */}
+      {/* Team Section - Carousel */}
       <section className="py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="order-2 lg:order-1"
-            >
-              <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
-                Meet the Founder
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
-                Annie Pursel
-              </h2>
-              <div className="space-y-4 text-muted text-lg leading-relaxed">
-                <p>
-                  With years of experience behind the chair, Annie has developed a passion for helping people discover their personal style and feel confident in their own skin.
-                </p>
-                <p>
-                  Her approach combines technical expertise with genuine care—taking time to understand not just what you want, but how your hair fits into your lifestyle. Whether you&apos;re looking for a bold transformation or a subtle refresh, Annie brings creativity and precision to every appointment.
-                </p>
-                <p>
-                  When she&apos;s not at the studio, you can find her exploring Chicago&apos;s neighborhoods, finding inspiration in art and design, or spending time with loved ones.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link
-                  href="/book"
-                  className="inline-block px-8 py-4 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
-                  style={{ color: "#FFFFFF" }}
-                >
-                  Book with Annie
-                </Link>
-              </div>
-            </motion.div>
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
+              The Team
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
+              Meet Your Stylists
+            </h2>
+            <p className="text-muted text-lg">
+              A team of passionate artists dedicated to making you look and feel extraordinary.
+            </p>
+          </motion.div>
 
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative order-1 lg:order-2"
+          {/* Carousel */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Navigation Buttons */}
+            <button
+              onClick={prev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-8 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+              aria-label="Previous"
             >
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-light-gray">
-                <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
-                  <span className="text-muted text-lg">Photo</span>
-                </div>
-              </div>
-              {/* Decorative accent */}
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-emerald-400 to-violet-400 rounded-3xl -z-10" />
-            </motion.div>
+              <ChevronLeft className="w-6 h-6 text-charcoal" />
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-8 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-6 h-6 text-charcoal" />
+            </button>
+
+            {/* Carousel Container */}
+            <div className="overflow-hidden">
+              <motion.div
+                className="flex"
+                animate={{ x: `-${activeIndex * 100}%` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {stylists.map((stylist) => (
+                  <div key={stylist.name} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+                      <div className="grid lg:grid-cols-2">
+                        <div className="aspect-[4/5] lg:aspect-auto bg-light-gray">
+                          <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center min-h-[300px]">
+                            <span className="text-muted text-lg">Photo</span>
+                          </div>
+                        </div>
+                        <div className="p-8 lg:p-12 flex flex-col justify-center">
+                          <span
+                            className={`inline-block self-start px-4 py-1 rounded-full text-sm font-medium text-white bg-gradient-to-r ${stylist.accent} mb-4`}
+                          >
+                            {stylist.role}
+                          </span>
+                          <h3 className="text-3xl lg:text-4xl font-semibold text-charcoal mb-4">
+                            {stylist.name}
+                          </h3>
+                          <p className="text-muted text-lg leading-relaxed mb-8">{stylist.bio}</p>
+                          <div className="flex gap-4">
+                            <Link
+                              href="/book"
+                              className="px-6 py-3 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
+                              style={{ color: "#FFFFFF" }}
+                            >
+                              Book Now
+                            </Link>
+                            <a
+                              href="#"
+                              className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                              aria-label="Instagram"
+                            >
+                              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {stylists.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    activeIndex === index ? "w-8 bg-charcoal" : "bg-gray-300"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
