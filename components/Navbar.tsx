@@ -14,7 +14,7 @@ const navLinks = [
 ];
 
 // Pages with dark hero backgrounds
-const darkHeroPages = ["/", "/about"];
+const darkHeroPages = ["/", "/about", "/services", "/contact", "/book"];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

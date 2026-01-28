@@ -29,24 +29,14 @@ const stylists = [
     role: "Founder & Stylist",
     bio: "With years of experience behind the chair, Annie has developed a passion for helping people discover their personal style. Her approach combines technical expertise with genuine care—taking time to understand not just what you want, but how your hair fits into your lifestyle.",
     accent: "from-rose-400 to-rose-500",
+    bookingUrl: "https://annie-pursel-hair.square.site/",
   },
   {
-    name: "Sarah Mitchell",
-    role: "Senior Stylist",
-    bio: "Sarah specializes in modern cuts and lived-in color. With a keen eye for face shapes and personal style, she creates looks that are both on-trend and uniquely you. Her clients love her calm energy and attention to detail.",
-    accent: "from-violet-400 to-violet-500",
-  },
-  {
-    name: "Maya Chen",
-    role: "Color Specialist",
-    bio: "Maya is our color expert, known for her stunning balayage and creative color work. She stays on the cutting edge of color techniques and loves helping clients express themselves through bold or subtle transformations.",
-    accent: "from-emerald-400 to-emerald-500",
-  },
-  {
-    name: "Jordan Taylor",
+    name: "Paul K.",
     role: "Stylist",
-    bio: "Jordan brings fresh energy and creative vision to every appointment. Trained in both classic and contemporary techniques, they excel at crafting styles that work for your everyday life while making you feel extraordinary.",
-    accent: "from-amber-400 to-amber-500",
+    bio: "Paul brings fresh energy and creative vision to every appointment. Trained in both classic and contemporary techniques, he excels at crafting styles that work for your everyday life while making you feel extraordinary.",
+    accent: "from-violet-400 to-violet-500",
+    bookingUrl: "https://paulkhair.glossgenius.com/",
   },
 ];
 
@@ -257,13 +247,15 @@ export default function About() {
                           </h3>
                           <p className="text-muted text-lg leading-relaxed mb-8">{stylist.bio}</p>
                           <div className="flex gap-4">
-                            <Link
-                              href="/book"
+                            <a
+                              href={stylist.bookingUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="px-6 py-3 bg-charcoal font-medium rounded-full hover:scale-105 transition-transform"
                               style={{ color: "#FFFFFF" }}
                             >
                               Book Now
-                            </Link>
+                            </a>
                             <a
                               href="#"
                               className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
