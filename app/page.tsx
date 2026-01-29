@@ -26,8 +26,8 @@ const services = [
 ];
 
 const team = [
-  { name: "Annie Pursel", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "#", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations." },
-  { name: "Paul K.", role: "Stylist", accent: "bg-violet-400", instagram: "#", bookUrl: "https://paulkhair.glossgenius.com/", bio: "Specializing in modern cuts and styles." },
+  { name: "Annie Pursel", slug: "annie", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "https://www.instagram.com/anniepurselhair/", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations." },
+  { name: "Paul K.", slug: "paul", role: "Stylist", accent: "bg-violet-400", instagram: "https://www.instagram.com/paulk_hair/", bookUrl: "https://paulkhair.glossgenius.com/", bio: "Specializing in modern cuts and styles." },
 ];
 
 export default function Home() {
@@ -280,14 +280,15 @@ export default function Home() {
                     >
                       Book Now
                     </a>
-                    <button
+                    <Link
+                      href={`/about#${member.slug}`}
                       className="w-11 h-11 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                       aria-label="View bio"
                     >
                       <svg className="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -321,14 +322,15 @@ export default function Home() {
                       <span className="relative z-10" style={{ color: "#FFFFFF" }}>Book Now</span>
                       <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-violet-500 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                     </a>
-                    <button
+                    <Link
+                      href={`/about#${member.slug}`}
                       className="w-11 h-11 bg-charcoal rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-charcoal/25"
                       aria-label="View bio"
                     >
                       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

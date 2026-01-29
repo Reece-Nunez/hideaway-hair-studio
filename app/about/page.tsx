@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Heart, Sparkles, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -26,22 +26,37 @@ const values = [
 const stylists = [
   {
     name: "Annie Pursel",
+    slug: "annie",
     role: "Founder & Stylist",
     bio: "With years of experience behind the chair, Annie has developed a passion for helping people discover their personal style. Her approach combines technical expertise with genuine care—taking time to understand not just what you want, but how your hair fits into your lifestyle.",
     accent: "from-rose-400 to-rose-500",
     bookingUrl: "https://annie-pursel-hair.square.site/",
+    instagram: "https://www.instagram.com/anniepurselhair/",
   },
   {
     name: "Paul K.",
+    slug: "paul",
     role: "Stylist",
     bio: "Paul brings fresh energy and creative vision to every appointment. Trained in both classic and contemporary techniques, he excels at crafting styles that work for your everyday life while making you feel extraordinary.",
     accent: "from-violet-400 to-violet-500",
     bookingUrl: "https://paulkhair.glossgenius.com/",
+    instagram: "https://www.instagram.com/paulk_hair/",
   },
 ];
 
 export default function About() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    const index = stylists.findIndex((s) => s.slug === hash);
+    if (index !== -1) {
+      setActiveIndex(index);
+      setTimeout(() => {
+        document.getElementById("stylists")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
 
   const next = () => setActiveIndex((prev) => (prev + 1) % stylists.length);
   const prev = () => setActiveIndex((prev) => (prev - 1 + stylists.length) % stylists.length);
@@ -182,7 +197,7 @@ export default function About() {
       </section>
 
       {/* Team Section - Carousel */}
-      <section className="py-24 lg:py-32 bg-off-white">
+      <section id="stylists" className="py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Header */}
           <motion.div
@@ -257,7 +272,9 @@ export default function About() {
                               Book Now
                             </a>
                             <a
-                              href="#"
+                              href={stylist.instagram}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                               aria-label="Instagram"
                             >
