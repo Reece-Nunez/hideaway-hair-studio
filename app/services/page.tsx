@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Scissors, PenTool, Sparkles, Star, Clock, Gem } from "lucide-react";
+import { Scissors, PenTool, Sparkles, Star, Clock, Gem, Droplets } from "lucide-react";
 
 const services = [
   {
@@ -15,13 +15,19 @@ const services = [
     title: "Styling",
     description: "Life's too short for boring hair. Embrace change and be rewarded by the effort.",
     icon: Sparkles,
-    details: "Special occasion or everyday elegance—leave feeling camera-ready. Our styling services help you look your best for any event, from a polished blowout to intricate updos.",
+    details: "Special occasion or everyday elegance, leave feeling camera-ready. Our styling services help you look your best for any event, from a polished blowout to intricate updos.",
   },
   {
     title: "Haircut",
     description: "A great haircut helps people see something they didn't know they could be.",
     icon: Scissors,
     details: "Precision cuts tailored to your face shape, lifestyle, and personal style. We take the time to understand what you want and deliver a cut that works for you every day.",
+  },
+  {
+    title: "Treatments",
+    description: "Give your hair the love it deserves with restorative care that transforms.",
+    icon: Droplets,
+    details: "From keratin treatments that smooth and strengthen to deep conditioning that restores shine and vitality, our treatments repair damage and keep your hair healthy and beautiful.",
   },
 ];
 
@@ -131,7 +137,7 @@ export default function Services() {
               Our Services
             </h2>
             <p className="text-muted text-lg">
-              Three things we do exceptionally well.
+              Four things we do exceptionally well.
             </p>
           </motion.div>
 

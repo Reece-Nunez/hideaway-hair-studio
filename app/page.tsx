@@ -5,7 +5,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SplashScreen from "@/components/SplashScreen";
-import { Scissors, PenTool, Sparkles } from "lucide-react";
+import { Scissors, PenTool, Sparkles, Droplets } from "lucide-react";
 
 const services = [
   {
@@ -22,6 +22,11 @@ const services = [
     title: "Haircut",
     description: "A great haircut helps people see something they didn't know they could be.",
     icon: Scissors,
+  },
+  {
+    title: "Treatments",
+    description: "Give your hair the love it deserves with restorative care that transforms.",
+    icon: Droplets,
   },
 ];
 
@@ -184,7 +189,7 @@ export default function Home() {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-12">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (

@@ -8,7 +8,7 @@ import { Heart, Sparkles, Users, ChevronLeft, ChevronRight } from "lucide-react"
 const values = [
   {
     title: "Authenticity",
-    description: "We believe your hair should reflect who you truly are. No cookie-cutter styles here—just personalized looks that celebrate your unique beauty.",
+    description: "We believe your hair should reflect who you truly are. No cookie-cutter styles here, just personalized looks that celebrate your unique beauty.",
     icon: Heart,
   },
   {
@@ -28,7 +28,7 @@ const stylists = [
     name: "Annie Pursel",
     slug: "annie",
     role: "Founder & Stylist",
-    bio: "With years of experience behind the chair, Annie has developed a passion for helping people discover their personal style. Her approach combines technical expertise with genuine care—taking time to understand not just what you want, but how your hair fits into your lifestyle.",
+    bio: "With over 20 years of experience behind the chair, Annie has developed a passion for helping people discover their personal style. Her approach combines technical expertise with genuine care, taking time to understand not just what you want, but how your hair fits into your lifestyle.",
     accent: "from-rose-400 to-rose-500",
     bookingUrl: "https://annie-pursel-hair.square.site/",
     instagram: "https://www.instagram.com/anniepurselhair/",
@@ -132,13 +132,13 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted text-lg leading-relaxed">
                 <p>
-                  Hideaway Hair Studio was born from a simple belief: everyone deserves a space where they can truly relax, be themselves, and leave feeling like the best version of who they are.
+                  Hideaway Hair Studio was born from a simple belief: everyone deserves a space where they can truly relax, be themselves, and leave feeling like the best version of themselves.
                 </p>
                 <p>
-                  Founded by Annie Pursel, our studio is more than just a place to get your hair done—it&apos;s a retreat from the everyday. Nestled in Chicago&apos;s Lakeview neighborhood, we&apos;ve created an intimate environment where artistry and comfort come together.
+                  Founded by Annie Pursel, our studio is more than just a place to get your hair done. It&apos;s a retreat from the everyday. Nestled in Chicago&apos;s Lakeview neighborhood, we&apos;ve created an intimate environment where artistry and comfort come together.
                 </p>
                 <p>
-                  Every detail, from the welcoming atmosphere to the personalized consultations, is designed with you in mind. Because at Hideaway, it&apos;s not just about the hair—it&apos;s about the experience.
+                  Every detail, from the welcoming atmosphere to the personalized consultations, is designed with you in mind. Because at Hideaway, it&apos;s not just about the hair. It&apos;s about the experience.
                 </p>
               </div>
             </motion.div>
