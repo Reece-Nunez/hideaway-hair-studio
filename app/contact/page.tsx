@@ -112,13 +112,25 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", phone: "", message: "" });
-    setErrors({ name: "", email: "", phone: "" });
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", phone: "", message: "" });
+      setErrors({ name: "", email: "", phone: "" });
+    } catch {
+      alert("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -401,10 +413,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-semibold text-charcoal mb-1">Email</h3>
                     <a
-                      href="mailto:hello@hideawayhairstudio.com"
+                      href="mailto:info@hideawayhairstudio.com"
                       className="text-muted hover:text-charcoal transition-colors"
                     >
-                      hello@hideawayhairstudio.com
+                      info@hideawayhairstudio.com
                     </a>
                   </div>
                 </div>
