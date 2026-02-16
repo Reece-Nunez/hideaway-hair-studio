@@ -426,7 +426,8 @@ export default function Home() {
                     Contact
                   </h3>
                   <div className="text-white text-lg space-y-1">
-                    <p className="text-white/70 italic">Coming soon</p>
+                    <a href="mailto:info@hideawayhairstudio.com" className="text-white/70 hover:text-white transition-colors block">info@hideawayhairstudio.com</a>
+                    <a href="tel:+14143333571" className="text-white/70 hover:text-white transition-colors block">(414) 333-3571</a>
                   </div>
                 </div>
 
