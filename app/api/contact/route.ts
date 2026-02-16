@@ -20,7 +20,7 @@ function emailLayout(content: string) {
           <tr>
             <td style="background:#1A1A1A;padding:32px 40px;text-align:center;border-radius:16px 16px 0 0;">
               <h1 style="margin:0;font-size:28px;font-weight:400;letter-spacing:0.04em;color:#FFFFFF;">
-                HIDEAWAY <span style="color:#C9A227;">HAIR STUDIO</span>
+                HIDEAWAY <span style="color:#a78bfa;">HAIR STUDIO</span>
               </h1>
               <div style="width:60px;height:2px;background:linear-gradient(90deg,#be123c,#5b21b6,#047857);margin:16px auto 0;border-radius:2px;"></div>
             </td>
@@ -35,12 +35,12 @@ function emailLayout(content: string) {
           <tr>
             <td style="background:#1A1A1A;padding:24px 40px;text-align:center;border-radius:0 0 16px 16px;">
               <p style="margin:0 0 4px;font-size:13px;color:#6B6B6B;">
-                Hideaway Hair Studio &bull; San Antonio, TX
+                Hideaway Hair Studio &bull; Chicago, IL
               </p>
               <p style="margin:0;font-size:13px;color:#6B6B6B;">
-                <a href="mailto:info@hideawayhairstudio.com" style="color:#C9A227;text-decoration:none;">info@hideawayhairstudio.com</a>
+                <a href="mailto:info@hideawayhairstudio.com" style="color:#a78bfa;text-decoration:none;">info@hideawayhairstudio.com</a>
                 &bull;
-                <a href="https://hideawayhairstudio.com" style="color:#C9A227;text-decoration:none;">hideawayhairstudio.com</a>
+                <a href="https://hideawayhairstudio.com" style="color:#a78bfa;text-decoration:none;">hideawayhairstudio.com</a>
               </p>
             </td>
           </tr>
@@ -57,14 +57,14 @@ function notificationEmail(name: string, email: string, phone: string | undefine
     <h2 style="margin:0 0 24px;font-size:22px;font-weight:400;color:#1A1A1A;">New Contact Form Submission</h2>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
       <tr>
-        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #C9A227;">
+        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #be123c;">
           <p style="margin:0 0 8px;font-size:14px;color:#6B6B6B;">Name</p>
           <p style="margin:0;font-size:16px;color:#1A1A1A;font-weight:600;">${name}</p>
         </td>
       </tr>
       <tr><td style="height:8px;"></td></tr>
       <tr>
-        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #C9A227;">
+        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #be123c;">
           <p style="margin:0 0 8px;font-size:14px;color:#6B6B6B;">Email</p>
           <p style="margin:0;font-size:16px;color:#1A1A1A;">
             <a href="mailto:${email}" style="color:#5b21b6;text-decoration:none;">${email}</a>
@@ -73,7 +73,7 @@ function notificationEmail(name: string, email: string, phone: string | undefine
       </tr>
       <tr><td style="height:8px;"></td></tr>
       <tr>
-        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #C9A227;">
+        <td style="padding:12px 16px;background:#F7F7F5;border-radius:8px;border-left:3px solid #be123c;">
           <p style="margin:0 0 8px;font-size:14px;color:#6B6B6B;">Phone</p>
           <p style="margin:0;font-size:16px;color:#1A1A1A;">${phone || "Not provided"}</p>
         </td>
