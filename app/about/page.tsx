@@ -98,104 +98,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-24 lg:py-32 bg-off-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-light-gray">
-                <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
-                  <span className="text-muted text-lg">Photo</span>
-                </div>
-              </div>
-              {/* Decorative accent */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-rose-400 to-violet-400 rounded-3xl -z-10" />
-            </motion.div>
-
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
-                The Beginning
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
-                Built on Passion
-              </h2>
-              <div className="space-y-4 text-muted text-lg leading-relaxed">
-                <p>
-                  Hideaway Hair Studio was born from a simple belief: everyone deserves a space where they can truly relax, be themselves, and leave feeling like the best version of themselves.
-                </p>
-                <p>
-                  Founded by Annie Pursel, our studio is more than just a place to get your hair done. It&apos;s a retreat from the everyday. Nestled in Chicago&apos;s Lakeview neighborhood, we&apos;ve created an intimate environment where artistry and comfort come together.
-                </p>
-                <p>
-                  Every detail, from the welcoming atmosphere to the personalized consultations, is designed with you in mind. Because at Hideaway, it&apos;s not just about the hair. It&apos;s about the experience.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
-              What We Stand For
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
-              Our Values
-            </h2>
-            <p className="text-muted text-lg">
-              The principles that guide everything we do.
-            </p>
-          </motion.div>
-
-          {/* Values Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-off-white rounded-3xl p-8 lg:p-10"
-                >
-                  <div className="w-14 h-14 bg-charcoal rounded-2xl flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-charcoal mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted text-md leading-relaxed">
-                    {value.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Team Section - Carousel */}
       <section id="stylists" className="py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -304,6 +206,104 @@ export default function About() {
                 />
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="py-24 lg:py-32 bg-off-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-light-gray">
+                <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
+                  <span className="text-muted text-lg">Photo</span>
+                </div>
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-rose-400 to-violet-400 rounded-3xl -z-10" />
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
+                The Beginning
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
+                Built on Passion
+              </h2>
+              <div className="space-y-4 text-muted text-lg leading-relaxed">
+                <p>
+                  Hideaway Hair Studio was born from a simple belief: everyone deserves a space where they can truly relax, be themselves, and leave feeling like the best version of themselves.
+                </p>
+                <p>
+                  Founded by Annie Pursel, our studio is more than just a place to get your hair done. It&apos;s a retreat from the everyday. Nestled in Chicago&apos;s Lakeview neighborhood, we&apos;ve created an intimate environment where artistry and comfort come together.
+                </p>
+                <p>
+                  Every detail, from the welcoming atmosphere to the personalized consultations, is designed with you in mind. Because at Hideaway, it&apos;s not just about the hair. It&apos;s about the experience.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
+              What We Stand For
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
+              Our Values
+            </h2>
+            <p className="text-muted text-lg">
+              The principles that guide everything we do.
+            </p>
+          </motion.div>
+
+          {/* Values Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            {values.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-off-white rounded-3xl p-8 lg:p-10"
+                >
+                  <div className="w-14 h-14 bg-charcoal rounded-2xl flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-charcoal mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-muted text-md leading-relaxed">
+                    {value.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
