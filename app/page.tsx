@@ -31,8 +31,9 @@ const services = [
 ];
 
 const team = [
-  { name: "Annie Pursel", slug: "annie", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "https://www.instagram.com/anniepurselhair/", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations." },
-  { name: "Paul K.", slug: "paul", role: "Stylist", accent: "bg-violet-400", instagram: "https://www.instagram.com/paulk_hair/", bookUrl: "https://paulkhair.glossgenius.com/", bio: "Specializing in modern cuts and styles." },
+  { name: "Annie Pursel", slug: "annie", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "https://www.instagram.com/anniepurselhair/", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations.", image: null },
+  { name: "Paul K.", slug: "paul", role: "Stylist", accent: "bg-violet-400", instagram: "https://www.instagram.com/paulk_hair/", bookUrl: "https://paulkhair.glossgenius.com/", bio: "Specializing in modern cuts and styles.", image: "/stylists/paul-k.jpeg" },
+  { name: "Krista Burke", slug: "krista", role: "Stylist", accent: "bg-emerald-400", instagram: "https://www.instagram.com/shegoesbykrista/", bookUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il", bio: "Bringing a fresh, personalized touch to every guest.", image: null },
 ];
 
 export default function Home() {
@@ -239,7 +240,7 @@ export default function Home() {
           </motion.div>
 
           {/* Team Grid */}
-          <div className="grid sm:grid-cols-2 gap-8 lg:gap-12 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -251,10 +252,20 @@ export default function Home() {
               >
                 <div className="relative mb-4 overflow-hidden rounded-3xl">
                   {/* Image */}
-                  <div className="aspect-[3/4] bg-light-gray">
-                    <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
-                      <span className="text-muted">Photo</span>
-                    </div>
+                  <div className="aspect-[3/4] bg-light-gray relative">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 384px"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
+                        <span className="text-muted">Photo</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Colored accent bar */}

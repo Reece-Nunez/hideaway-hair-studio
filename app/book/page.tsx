@@ -17,6 +17,12 @@ const stylists = [
     accent: "from-violet-400 to-violet-500",
     bookingUrl: "https://paulkhair.glossgenius.com/",
   },
+  {
+    name: "Krista Burke",
+    role: "Stylist",
+    accent: "from-emerald-400 to-emerald-500",
+    bookingUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il",
+  },
 ];
 
 export default function Book() {

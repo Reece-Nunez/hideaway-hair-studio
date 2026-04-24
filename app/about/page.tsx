@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Sparkles, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
 const values = [
@@ -32,6 +33,7 @@ const stylists = [
     accent: "from-rose-400 to-rose-500",
     bookingUrl: "https://annie-pursel-hair.square.site/",
     instagram: "https://www.instagram.com/anniepurselhair/",
+    image: null as string | null,
   },
   {
     name: "Paul K.",
@@ -41,6 +43,17 @@ const stylists = [
     accent: "from-violet-400 to-violet-500",
     bookingUrl: "https://paulkhair.glossgenius.com/",
     instagram: "https://www.instagram.com/paulk_hair/",
+    image: "/stylists/paul-k.jpeg" as string | null,
+  },
+  {
+    name: "Krista Burke",
+    slug: "krista",
+    role: "Stylist",
+    bio: "Krista brings a fresh, personalized touch to every appointment. With a keen eye for detail and a passion for helping clients feel their best, she creates looks that are both distinctive and effortlessly wearable.",
+    accent: "from-emerald-400 to-emerald-500",
+    bookingUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il",
+    instagram: "https://www.instagram.com/shegoesbykrista/",
+    image: null as string | null,
   },
 ];
 
@@ -148,10 +161,20 @@ export default function About() {
                   <div key={stylist.name} className="w-full flex-shrink-0 px-4">
                     <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
                       <div className="grid lg:grid-cols-2">
-                        <div className="aspect-[4/5] lg:aspect-auto bg-light-gray">
-                          <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center min-h-[300px]">
-                            <span className="text-muted text-lg">Photo</span>
-                          </div>
+                        <div className="aspect-[4/5] lg:aspect-auto bg-light-gray relative min-h-[300px]">
+                          {stylist.image ? (
+                            <Image
+                              src={stylist.image}
+                              alt={stylist.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
+                              <span className="text-muted text-lg">Photo</span>
+                            </div>
+                          )}
                         </div>
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                           <span
