@@ -31,9 +31,9 @@ const services = [
 ];
 
 const team = [
-  { name: "Annie Pursel", slug: "annie", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "https://www.instagram.com/anniepurselhair/", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations.", image: null },
+  { name: "Annie Pursel", slug: "annie", role: "Founder & Stylist", accent: "bg-rose-400", instagram: "https://www.instagram.com/anniepurselhair/", bookUrl: "https://annie-pursel-hair.square.site/", bio: "Passionate about creating beautiful transformations.", image: "/stylists/annie.jpeg" },
   { name: "Paul K.", slug: "paul", role: "Stylist", accent: "bg-violet-400", instagram: "https://www.instagram.com/paulk_hair/", bookUrl: "https://paulkhair.glossgenius.com/", bio: "Specializing in modern cuts and styles.", image: "/stylists/paul-k.jpeg" },
-  { name: "Krista Burke", slug: "krista", role: "Stylist", accent: "bg-emerald-400", instagram: "https://www.instagram.com/shegoesbykrista/", bookUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il", bio: "Bringing a fresh, personalized touch to every guest.", image: null },
+  { name: "Krista Burke", slug: "krista", role: "Stylist", accent: "bg-emerald-400", instagram: "https://www.instagram.com/shegoesbykrista/", bookUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il", bio: "Bringing a fresh, personalized touch to every guest.", image: "/stylists/krista.jpeg" },
 ];
 
 export default function Home() {

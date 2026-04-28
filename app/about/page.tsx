@@ -33,7 +33,7 @@ const stylists = [
     accent: "from-rose-400 to-rose-500",
     bookingUrl: "https://annie-pursel-hair.square.site/",
     instagram: "https://www.instagram.com/anniepurselhair/",
-    image: null as string | null,
+    image: "/stylists/annie.jpeg" as string | null,
   },
   {
     name: "Paul K.",
@@ -53,7 +53,7 @@ const stylists = [
     accent: "from-emerald-400 to-emerald-500",
     bookingUrl: "https://square.site/book/Z2YX412X0BZ8F/krista-burke-chicago-il",
     instagram: "https://www.instagram.com/shegoesbykrista/",
-    image: null as string | null,
+    image: "/stylists/krista.jpeg" as string | null,
   },
 ];
 
@@ -161,13 +161,13 @@ export default function About() {
                   <div key={stylist.name} className="w-full flex-shrink-0 px-4">
                     <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
                       <div className="grid lg:grid-cols-2">
-                        <div className="aspect-[4/5] lg:aspect-auto bg-light-gray relative min-h-[300px]">
+                        <div className="aspect-[4/5] bg-light-gray relative">
                           {stylist.image ? (
                             <Image
                               src={stylist.image}
                               alt={stylist.name}
                               fill
-                              className="object-cover"
+                              className="object-cover object-top"
                               sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                           ) : (
@@ -244,10 +244,14 @@ export default function About() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-light-gray">
-                <div className="w-full h-full bg-gradient-to-br from-off-white to-light-gray flex items-center justify-center">
-                  <span className="text-muted text-lg">Photo</span>
-                </div>
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-light-gray relative">
+                <Image
+                  src="/studio/studio4.jpeg"
+                  alt="Inside Hideaway Hair Studio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
               {/* Decorative accent */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-rose-400 to-violet-400 rounded-3xl -z-10" />
@@ -281,8 +285,59 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Studio Gallery Section */}
       <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-gray font-medium tracking-widest text-sm uppercase mb-4 block">
+              Our Space
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-semibold text-charcoal mb-6">
+              Step Inside
+            </h2>
+            <p className="text-muted text-lg">
+              An intimate sanctuary in the heart of Lakeview, designed for transformation and connection.
+            </p>
+          </motion.div>
+
+          {/* Bento Gallery */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px] lg:auto-rows-[260px]">
+            {[
+              { src: "/studio/studio2.jpeg", span: "col-span-2 row-span-2" },
+              { src: "/studio/studio3.jpeg", span: "col-span-2 row-span-1" },
+              { src: "/studio/studio1.jpeg", span: "col-span-1 row-span-1" },
+              { src: "/studio/studio5.jpeg", span: "col-span-1 row-span-1" },
+              { src: "/studio/studio6.jpeg", span: "col-span-2 lg:col-span-4 row-span-1" },
+            ].map((img, index) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className={`${img.span} relative rounded-3xl overflow-hidden group`}
+              >
+                <Image
+                  src={img.src}
+                  alt="Hideaway Hair Studio interior"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-24 lg:py-32 bg-off-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Header */}
           <motion.div
