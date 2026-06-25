@@ -62,9 +62,12 @@ export default function Footer() {
         {/* Hours */}
         <div className="border-t border-white/10 pt-8 mb-6">
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-2 text-gray">
-            <span>Mon - Fri: 9am - 8pm</span>
-            <span>Saturday: 9am - 6pm</span>
-            <span>Sunday: 10am - 5pm</span>
+            <span>Tuesday: 1pm – 9pm</span>
+            <span>Wednesday: 11am – 9pm</span>
+            <span>Thursday: 1pm – 9pm</span>
+            <span>Friday: 10am – 6pm</span>
+            <span>Saturday: 9am – 5pm</span>
+            <span>Sunday &amp; Monday: Closed</span>
           </div>
         </div>
 
