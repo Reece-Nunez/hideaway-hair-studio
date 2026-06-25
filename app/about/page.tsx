@@ -309,10 +309,10 @@ export default function About() {
           {/* Bento Gallery */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px] lg:auto-rows-[260px]">
             {[
-              { src: "/studio/studio2.jpeg", span: "col-span-2 row-span-2" },
+              { src: "/studio/studio5.jpeg", span: "col-span-2 row-span-2" },
               { src: "/studio/studio3.jpeg", span: "col-span-2 row-span-1" },
               { src: "/studio/studio1.jpeg", span: "col-span-1 row-span-1" },
-              { src: "/studio/studio5.jpeg", span: "col-span-1 row-span-1" },
+              { src: "/studio/studio2.jpeg", span: "col-span-1 row-span-1" },
               { src: "/studio/studio6.jpeg", span: "col-span-2 lg:col-span-4 row-span-1" },
             ].map((img, index) => (
               <motion.div
